@@ -1,0 +1,41 @@
+<head>
+    <title></title>
+    <meta name="ROBOTS" content="NOINDEX,NOFOLLOW"><meta name="keywords" content=""><meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        // IPアクセス制限
+        $.get("https://ipinfo.io", function(res) {
+          var IP = ['54.238.88.50','3.115.208.163'];//ここの配列内にアクセスできるIPを記載。TBMのIPを記載
+          if(!IP.includes(res.ip)){
+            window.location.href = "https://www.yahoo.co.jp/"
+          }
+        }, "jsonp");
+      });
+    </script>
+    <style class="main_style">
+      .layout-canvas-g { background-color: #FFFFFF; border: 0px solid transparent; box-sizing: border-box; padding: 0px; width: 100%; }
+      .layout-canvas-g > .header, .layout-canvas-g > .section, .layout-canvas-g > .footer { position: relative; overflow: hidden; width: 100%; overflow-wrap: break-word; }
+      .layout-canvas-g > .section { margin: 10px 0px; }
+      .layout-canvas-g > .section > .columns { box-sizing: border-box; overflow-wrap: break-word; }
+      body { color: #808080; font-family: Arial; font-size: 16px; margin: 0px auto; max-width: 1280px; background-color: #E4E4E4; line-height: 1; padding: 0px; }
+      @media only screen and (max-width: 480px) {
+        .mobile-hidden { display: none !important; }
+        .responsive-td { width: 100% !important; display: block !important; padding: 0px !important; }
+      }
+      .layout-canvas-g > .section > .columns { width: 100%; }
+      h1 { font-family: Arial; font-size: 28px; color: #202020; line-height: 1; font-weight: bold; font-style: normal; }
+      h2 { font-family: Arial; font-size: 22px; color: #202020; line-height: 1; font-weight: bold; font-style: normal; }
+      h3 { font-family: Arial; font-size: 20px; color: #202020; line-height: 1; font-weight: bold; font-style: normal; }
+      a[href]:not(.buttonstyles) { color: #0000EE; text-decoration: none; }
+      button.buttonblock { color: #FFFFFF; border-radius: 3px; background-color: #5D5D5D; }
+      td.buttonblock { color: #FFFFFF; border-radius: 3px; }
+      a.buttonstyles { font-family: Arial; font-size: 16px; color: #FFFFFF; background-color: #5D5D5D; border-radius: 3px; padding: 10px; border: 1px solid #5D5D5D; }
+      .btn_design:hover { color: #FFFFFF; background-color: #000000; cursor: pointer; }
+      ul, ol { padding: 0px; position: relative; }
+      ul li, ol li { color: #2589d0; border-left: 5px solid #2D8FDD; background: #F1F8FF; margin-bottom: 3px; line-height: 1.5; padding: 0.5em; list-style-type: none !important; }
+    </style>
+  </head>
+  

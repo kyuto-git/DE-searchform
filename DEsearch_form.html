@@ -1,0 +1,45 @@
+<div style="margin: 1em; text-align: center;">
+  <p style="font-size: 1em;">Marketing Cloud<br>DataExtension 検索 </p>
+  <input type="text" id="keyword" placeholder="検索するDE名"  style="font-size: 1em; width: 300px;height: 50px; padding: 5px 15px; border: 2px solid #2589d0; border-radius: 25px;margin:20px 0px 30px 0px;">
+  <br>
+  <button class="btn_design" id="like" style="font-size: 1em; width: 300px;height: 50px; padding: 5px 15px; border: 2px solid #2589d0; border-radius: 25px;margin:10px 0px 10px 0px;">あいまい条件 で検索する</button><br>
+  <button class="btn_design" id="equals" style="font-size: 1em; width: 300px;height: 50px; padding: 5px 15px; border: 2px solid #2589d0; border-radius: 25px;margin:10px 0px 50px 0px;">完全一致 で検索する</button>
+  <ul>
+  </ul>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $('#like').on('click',function(){
+      $.get('https://pub.mc.tobem.jp/searchDE_like?keyword=' + $('#keyword').val())
+      .done(function( data ) {
+        if(data.status_code == "200" && data.list.length >= 1){
+          $('ul li').remove();
+          for(var i = 0;i < data.list.length;i++){
+            $('ul').append('<li style="list-style:none">' + data.list[i].join(' > ') + '</li>');
+          }
+        } else if(data.status_code == "200"){
+          alert("DEは存在しません");
+        } else {
+          alert(data.message);
+        }
+      });
+    });
+    $('#equals').on('click',function(){
+      $.get('https://pub.mc.tobem.jp/searchDE_equal?keyword=' + $('#keyword').val())
+      .done(function( data ) {
+        if(data.status_code == "200" && data.list.length >= 1){
+          $('ul li').remove();
+          for(var i = 0;i < data.list.length;i++){
+            $('ul').append('<li style="list-style:none">' + data.list[i].join(' > ') + '</li>');
+          }
+        } else if(data.status_code == "200"){
+          alert("DEは存在しません");
+        } else {
+          alert(data.message);
+        }
+      });
+    });
+  });
+
+</script>
